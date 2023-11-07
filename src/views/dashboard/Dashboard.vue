@@ -45,24 +45,12 @@
           </v-data-iterator>
         </v-card>
       </v-col>
-
-      <v-col cols="12">
-        <v-card title="Latest User Events" prepend-icon="mdi-calendar">
-          <v-infinite-scroll :height="300" :items="events" :onLoad="load">
-            <template v-for="(item, index) in events" :key="item">
-              <div :class="['pa-2', index % 2 === 0 ? 'bg-grey-lighten-2' : '']">
-                User Event #{{ item }}
-              </div>
-            </template>
-          </v-infinite-scroll>
-        </v-card>
-      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script setup>
-  import { onMounted } from 'vue';
+  import { onMounted } from 'vue'
   import { ref } from 'vue'
 
   const breadcrumbs = ref([
@@ -76,26 +64,8 @@
     }
   ])
   const page = ref(2)
-  const events = ref([])
   const cards = ref(Array.from({ length: 18 }, (k, v) => v + 1))
   const loading = ref(true)
-
-  async function api () {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(Array.from({ length: 10 }, (k, v) => v + (events.value.at(-1) ?? 0 + 1)))
-      }, 1000)
-    })
-  }
-
-  async function load ({ done }) {
-    // Perform API call
-    const res = await api()
-
-    events.value.push(...res)
-
-    done('ok')
-  }
 
   onMounted(() => {
     setTimeout(() => {
