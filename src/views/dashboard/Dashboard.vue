@@ -2,13 +2,7 @@
   <v-container>
     <h1 class="text-h3 mb-2">Dashboard Page</h1>
 
-    <v-row>
-      <v-col cols="12">
-        <v-card title="Dashboard cards" prepend-icon="mdi-numeric">
-          <!--  -->
-        </v-card>
-      </v-col>
-    </v-row>
+    <!--  -->
   </v-container>
 </template>
 
