@@ -4,9 +4,7 @@
 
     <v-row>
       <v-col cols="12">
-        <v-card title="Dashboard cards" prepend-icon="mdi-numeric">
-          <!--  -->
-        </v-card>
+        <!--  -->
       </v-col>
     </v-row>
   </v-container>
