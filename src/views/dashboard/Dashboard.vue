@@ -14,21 +14,19 @@
               <v-container>
                 <v-row>
                   <v-col cols="4" v-for="(item, n) in items" :key="n">
-                    <v-skeleton-loader type="card" :loading="loading">
-                      <v-card
-                        :title="`Card title ${item.raw}`"
-                        border
-                        flat
-                        subtitle="Card subtitle"
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                      >
-                        <template #actions>
-                          <v-spacer></v-spacer>
+                    <v-card
+                      :title="`Card title ${item.raw}`"
+                      border
+                      flat
+                      subtitle="Card subtitle"
+                      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    >
+                      <template #actions>
+                        <v-spacer></v-spacer>
 
-                          <v-btn text="More details" border></v-btn>
-                        </template>
-                      </v-card>
-                    </v-skeleton-loader>
+                        <v-btn text="More details" border></v-btn>
+                      </template>
+                    </v-card>
                   </v-col>
                 </v-row>
               </v-container>
@@ -50,7 +48,6 @@
 </template>
 
 <script setup>
-  import { onMounted } from 'vue'
   import { ref } from 'vue'
 
   const breadcrumbs = ref([
@@ -65,11 +62,4 @@
   ])
   const page = ref(2)
   const cards = ref(Array.from({ length: 18 }, (k, v) => v + 1))
-  const loading = ref(true)
-
-  onMounted(() => {
-    setTimeout(() => {
-      loading.value = false
-    }, 1500)
-  })
 </script>
