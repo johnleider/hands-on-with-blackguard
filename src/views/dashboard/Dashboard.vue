@@ -83,7 +83,7 @@
   async function api () {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(Array.from({ length: 10 }, (k, v) => v + (events.value.at(-1) ?? 0 + 1)))
+        resolve(Array.from({ length: 10 }, (k, v) => v + (events.value.at(-1) ? events.value.at(-1) + 1 : 1)))
       }, 1000)
     })
   }
